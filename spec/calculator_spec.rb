@@ -41,4 +41,8 @@ describe Calculator do
 	  expect(Calculator.solve('-3*-4')).to eq(12)
   end
 
+  it "retorna um erro de semântica" do
+	  expect { Calculator.solve('{2+1)') }.to raise_error("Semantic Error")
+  end
+
 end
