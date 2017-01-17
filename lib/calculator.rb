@@ -1,7 +1,7 @@
-require "calculator/version"
-require "calculator/token"
-require "calculator/lexer"
-require "calculator/parser"
+require_relative "./calculator/version"
+require_relative "./calculator/token"
+require_relative "./calculator/lexer"
+require_relative "./calculator/parser"
 
 module Calculator
 	def self.solve string
