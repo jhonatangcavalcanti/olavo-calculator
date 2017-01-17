@@ -45,4 +45,8 @@ describe Calculator do
 	  expect { Calculator.solve('{2+1)') }.to raise_error("Semantic Error")
   end
 
+  it "executa o caso de teste '4+{[3*(2+1)] + 1}'" do
+	  expect(Calculator.solve('4+{[3*(2+1)] + 1}')).to eq(14)
+  end
+
 end
