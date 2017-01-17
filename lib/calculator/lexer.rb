@@ -1,6 +1,6 @@
 class Calculator::Lexer
 
-	@@tokens = {	
+	TOKENS = {	
 		:'[' => :open_bracket,
 		:'(' => :open_parenthesis,
 		:'{' => :open_key,
@@ -19,7 +19,7 @@ class Calculator::Lexer
 		i = 0
 
 		while i < string.length do
-			i = detect_token string, i, tokens
+			i = detect_token(string, i, tokens)
 		end
 
 		tokens
@@ -36,8 +36,8 @@ class Calculator::Lexer
 			return detect_number string, index, tokens
 		end
 
-		if @@tokens.keys.include? current.to_sym
-			tokens << Calculator::Token.new(@@tokens[current.to_sym], current.to_sym)
+		if TOKENS.keys.include? current.to_sym
+			tokens << Calculator::Token.new(TOKENS[current.to_sym], current.to_sym)
 			return index + 1
 		end
 
