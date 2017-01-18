@@ -1,4 +1,4 @@
-# Calculator
+# OlavoCalculator
 
 This is a simple gem that allow users to execute a string as a mathematical expression.
 
@@ -7,7 +7,7 @@ This is a simple gem that allow users to execute a string as a mathematical expr
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'calculator'
+gem 'olavo_calculator'
 ```
 
 And then execute:
@@ -16,12 +16,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install calculator
+    $ gem install olavo_calculator
 
 ## Usage
 
 ```ruby
-Calculator.solve('6*5*4*3*2*1')
+OlavoCalculator.solve('6*5*4*3*2*1')
 ```
 
 ## Development
@@ -32,5 +32,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitLab at https://gitlab.globoi.com/carlos.dias/calculator.
+Bug reports and pull requests are welcome on GitHub at https://github.com/hammurabi13th/olavo-calculator
 

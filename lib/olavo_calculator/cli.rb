@@ -1,11 +1,11 @@
 require 'thor'
-require 'calculator'
+require 'olavo_calculator'
 
-module Calculator
+module OlavoCalculator
 	class CLI < Thor
 		desc("solve EXPRESSION", "Solves the given EXPRESSION and returns the result")
 		def solve expression
-			puts Calculator.solve expression
+			puts OlavoCalculator.solve expression
 		end
 
 		default_task :solve

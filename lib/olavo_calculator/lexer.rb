@@ -1,4 +1,4 @@
-class Calculator::Lexer
+class OlavoCalculator::Lexer
 
 	TOKENS = {	
 		:'[' => :open_bracket,
@@ -37,7 +37,7 @@ class Calculator::Lexer
 		end
 
 		if TOKENS.keys.include? current.to_sym
-			tokens << Calculator::Token.new(TOKENS[current.to_sym], current.to_sym)
+			tokens << OlavoCalculator::Token.new(TOKENS[current.to_sym], current.to_sym)
 			return index + 1
 		end
 
@@ -54,7 +54,7 @@ class Calculator::Lexer
 			index = get_number number, string, index + 1
 		end
 
-		tokens << Calculator::Token.new(:number, number.to_f)
+		tokens << OlavoCalculator::Token.new(:number, number.to_f)
 
 		index
 	end

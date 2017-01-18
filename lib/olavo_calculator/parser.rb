@@ -1,4 +1,4 @@
-class Calculator::Parser
+class OlavoCalculator::Parser
 
 	PRIORITY_SEMANTICS = {
 		:open_parenthesis	=> :close_parenthesis,
@@ -26,7 +26,7 @@ class Calculator::Parser
 		end
 
 		token_array.unshift next_token
-		token_array.unshift Calculator::Token.new(:number, value)
+		token_array.unshift OlavoCalculator::Token.new(:number, value)
 
 		detect_term token_array
 	end

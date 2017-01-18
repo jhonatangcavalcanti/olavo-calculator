@@ -1,4 +1,4 @@
-class Calculator::Token
+class OlavoCalculator::Token
 	attr_accessor :type, :value
 
 	def initialize type, value

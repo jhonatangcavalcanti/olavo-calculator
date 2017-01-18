@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'calculator/version'
+require 'olavo_calculator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "calculator"
-  spec.version       = Calculator::VERSION
+  spec.name          = "olavo_calculator"
+  spec.version       = OlavoCalculator::VERSION
   spec.authors       = ["Carlos Cardoso Dias"]
-  spec.email         = ["carlos.dias@corp.globo.com"]
+  spec.email         = ["ccd.leron@gmail.com"]
 
   spec.summary       = %q{Uma simples gem que permite a resolução de uma expressão matemática a partir de uma string}
-  spec.homepage      = "https://gitlab.globoi.com/carlos.dias/calculator"
+  spec.homepage      = "https://github.com/hammurabi13th/olavo-calculator"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
