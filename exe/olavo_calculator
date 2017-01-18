@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'olavo_calculator/cli'
+
+OlavoCalculator::CLI.start
