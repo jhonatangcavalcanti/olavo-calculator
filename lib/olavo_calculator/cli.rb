@@ -6,6 +6,8 @@ module OlavoCalculator
 		desc("solve EXPRESSION", "Solves the given EXPRESSION and returns the result")
 		def solve expression
 			puts OlavoCalculator.solve expression
+    rescue Exception => e
+      puts e.message
 		end
 
 		default_task :solve

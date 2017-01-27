@@ -1,0 +1,2 @@
+class OlavoException < Exception
+end

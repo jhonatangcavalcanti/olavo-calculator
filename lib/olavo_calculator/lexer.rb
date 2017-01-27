@@ -13,55 +13,58 @@ class OlavoCalculator::Lexer
 		:'/' => :div
 	}
 
-	def self.tokenize string
-		tokens = []
+	def tokenize string
+		@tokens = []
+    @string = string
+
 		last_token = nil
 		i = 0
 
-		while i < string.length do
-			i = detect_token(string, i, tokens)
+		while i < @string.length do
+			i = detect_token i
 		end
 
-		tokens
+		@tokens
 	end
 
-	def self.detect_token string, index, tokens
-		current = string[index]
+  private
+	def detect_token index
+		current = @string[index]
 
-		if current =~ /\s/
-			return index + 1
-		end
+    return (index + 1) if current =~ /\s/
 		
-		if current =~ /\d/ || (current =~ /-/ && (index + 1) < string.length && string[index + 1] =~ /\d/)
-			return detect_number string, index, tokens
-		end
+    return detect_number(index) if current =~ /\d/ || negative?(index)
 
 		if TOKENS.keys.include? current.to_sym
-			tokens << OlavoCalculator::Token.new(TOKENS[current.to_sym], current.to_sym)
+			@tokens << OlavoCalculator::Token.new(TOKENS[current.to_sym], current.to_sym)
 			return index + 1
 		end
 
-		raise "Syntax Error"
+		raise OlavoException, "Syntax Error"
 	end
 
-	def self.detect_number string, index, tokens
-		number = string[index]
+  def negative?(index)
+    @string[index] =~ /-/ && (index + 1) < @string.length && @string[index + 1] =~ /\d/
+  end
 
-		index = get_number number, string, index + 1
+	def detect_number index
+		number = @string[index]
 
-		if index + 1 < string.length && string[index] =~ /\./ && string[index + 1] =~ /\d/
+		index = get_number number, index + 1
+
+		if index + 1 < @string.length && @string[index] =~ /\./ && @string[index + 1] =~ /\d/
 			number << '.'
-			index = get_number number, string, index + 1
+			index = get_number number, index + 1
 		end
 
-		tokens << OlavoCalculator::Token.new(:number, number.to_f)
+		@tokens << OlavoCalculator::Token.new(:number, number.to_f)
 
 		index
 	end
 
-	def self.get_number number, string, index
-		while index < string.length && string[index] =~ /\d/ do
-			number << string[index]
+	def get_number number, index
+		while index < @string.length && @string[index] =~ /\d/ do
+			number << @string[index]
 			index += 1
 		end
 
