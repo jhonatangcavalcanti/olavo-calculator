@@ -7,6 +7,6 @@ require "olavo_calculator/parser"
 module OlavoCalculator
 	def self.solve string
 		token_array = Lexer.new.tokenize string
-		Parser.parse token_array
+		Parser.new.parse token_array
 	end
 end
