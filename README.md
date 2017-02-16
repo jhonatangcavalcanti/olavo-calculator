@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-OlavoCalculator.solve('6*5*4*3*2*1')
+OlavoCalculator.solve('5*6+7+8-2')
 ```
 
 ## Development
@@ -33,4 +33,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hammurabi13th/olavo-calculator
-
